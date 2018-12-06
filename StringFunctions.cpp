@@ -1,4 +1,5 @@
 #include "String.hpp"
+#include <cstring>
 
 size_t	String::size() const
 {

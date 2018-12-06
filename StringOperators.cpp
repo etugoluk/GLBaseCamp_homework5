@@ -1,4 +1,5 @@
 #include "String.hpp"
+#include <cstring>
 
 String & String::operator=(String const &s)
 {
