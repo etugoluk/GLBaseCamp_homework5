@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-#define BUF 256
-
 class String
 {
 	size_t	_size;

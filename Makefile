@@ -1,9 +1,7 @@
 NAME = string
 
 SRCS = main.cpp \
-		String.cpp \
-		StringFunctions.cpp \
-		StringOperators.cpp \
+		String.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

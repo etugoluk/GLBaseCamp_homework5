@@ -1,12 +1,79 @@
 #include "String.hpp"
 
+void	null_tests()
+{
+	std::cout << "\033[32mNULL TESTS\033[0m" << std::endl;
+
+	String s1(nullptr);
+	std::cout << "s1: " << s1 << std::endl;
+
+	String s2(s1);
+	std::cout << "s2: " << s1 << std::endl;
+
+	String s3;
+
+	s3 = s2;
+	s3 += s2;
+
+	std::cout << "s3: " << s1 << std::endl;
+
+	String s4("I'm not null string!");
+	std::cout << "s4: " << s4 << std::endl;
+
+	std::cout << "s1 == s2: " << (s1 == s2) << std::endl;
+	std::cout << "s1 != s2: " << (s1 != s2) << std::endl;
+
+	std::cout << "s1 == s4: " << (s1 == s4) << std::endl;
+	std::cout << "s1 != s4: " << (s1 != s4) << std::endl;
+
+	std::cout << std::endl << "APPEND TESTS" << std::endl;
+	s1.append(nullptr);
+	s1.append("append me");
+	std::cout << "s1 after append: " << s1 << std::endl;
+
+	s4.append(nullptr);
+	std::cout << "s4 after null append: " << s4 << std::endl;
+
+	std::cout << std::endl << "COMPARE TESTS" << std::endl;
+	std::cout << "s1 compare with s2: " << s1.compare(s2) << std::endl;
+	std::cout << "s2 compare with s1: " << s2.compare(s1) << std::endl;
+	std::cout << "s2 compare with s2: " << s2.compare(s2) << std::endl;
+
+	std::cout << std::endl << "RESIZE TESTS" << std::endl;
+	s2.resize(10);
+	std::cout << "s2 resize to 10: " << s2 << std::endl;
+
+	std::cout << std::endl << "SWAP TESTS (s2 and s4)" << std::endl;
+	s2.swap(s4);
+	std::cout << "s2: " << s2 << std::endl;
+	std::cout << "s4: " << s4 << std::endl;
+
+	std::cout << std::endl << "SUBSTR TESTS" << std::endl;
+	std::cout << "s2.substr(nullptr): " << s2.substr(nullptr) << std::endl;
+	std::cout << "s4.substr(s2): " << s4.substr(s2) << std::endl;
+
+	std::cout << std::endl << "INSERT STRING TESTS" << std::endl;
+	s2.insert(3, nullptr);
+	std::cout << "s2.insert(3, nullptr): " << s2 << std::endl;
+	s4.insert(3, s2);
+	std::cout << "s4.insert(3, s2): " << s4 << std::endl;
+
+	std::cout << std::endl << "INSERT CHAR TESTS" << std::endl;
+	s2.insert(3, '\0');
+	std::cout << "s2.insert(3, '\\0'): " << s2 << std::endl;
+	s4.insert(3, 'a');
+	std::cout << "s4.insert(3, 'a'): " << s4 << std::endl;
+
+	std::cout << std::endl << "\033[32mEND OF NULL TESTS\033[0m" << std::endl;
+}
+
 int main()
 {
 	//default constructor with default argument
 	String s1;
 	std::cout << "s1: " << s1 << std::endl; //operator <<
 
-	//operator >>
+	// operator >>
 	// std::cout << "Enter your string: " << std::endl;
 	// std::cin >> s1;
 	// std::cout << "s1 user string: " << s1 << std::endl;
@@ -72,7 +139,7 @@ int main()
 
 	//clear funtion
 	s2.clear();
-	std::cout << "Clear s2 has " << s5.size() << " size" << std::endl;
+	std::cout << "Clear s2 has " << s2.size() << " size" << std::endl;
 
 	//swap function
 	std::cout << "Before swap: " << s3 << std::endl;
@@ -101,5 +168,9 @@ int main()
 	s4.insert(20, '!');
 	std::cout << s4 << std::endl;
 
+	//NEW TESTS
+	null_tests();
+
+	std::cout << "END OF ALL TESTS" << std::endl;
 	return 0;
 }
